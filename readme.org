@@ -1,0 +1,3 @@
+* Project 1 – EC2 REST Service: Pounds → Kilograms
+
+- CS 454/554 – Cloud Computing (UAH)
