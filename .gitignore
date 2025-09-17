@@ -12,3 +12,5 @@ wheels/
 api.py
 .mypy_cache/
 pyproject.toml
+/package-lock.json
+/node_modules/
