@@ -1,6 +1,8 @@
 #!/bin/bash
 
 BASE_URL="http://127.0.0.1:8080"
+BASE_URL="http://3.150.129.43"
+BASE_URL="https://uduah.duckdns.org"
 
 echo "Testing API endpoints..."
 
