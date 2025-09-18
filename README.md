@@ -32,12 +32,22 @@ node server.js
 
 Convert pounds to kilograms using the standard conversion formula.
 
-## Conversion Formula
+## Conversion Logic
 
-The API uses the standard conversion formula:
+### Formula
+```javascript
+kg = lbs * 0.45359237
 ```
-kg = lbs × 0.45359237
-```
+
+### Precision
+- Result rounded to 3 decimal places
+- Implementation: `Math.round(lbs * 0.45359237 * 1000) / 1000`
+
+### Validation Rules
+1. Parameter must be present
+2. Must be a valid number (not NaN)
+3. Must be finite (not Infinity/-Infinity)
+4. Must be non-negative (>= 0)
 
 Results are rounded to 3 decimal places for precision.
 
