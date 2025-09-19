@@ -2,7 +2,7 @@
 
 - CS 454/554 – Cloud Computing (UAH)
 
-A simple RESTful API that converts pounds to kilograms with HTTPS encryption.
+A simple RESTful API that converts pounds to kilograms with HTTPS encryption
 
 ## Setup Instructions
 
@@ -30,7 +30,7 @@ node server.js
 
 **API Endpoint**: `GET /convert?lbs={number}`
 
-Convert pounds to kilograms using the standard conversion formula.
+Convert pounds to kilograms using the standard conversion formula
 
 ## Conversion Logic
 
@@ -68,6 +68,9 @@ curl http://localhost:8080/convert?lbs=10
 ```
 
 ### More Examples
+
+- Can be found more in [curl_test.sh](curl_test.sh)
+
 ```bash
 # Convert 25 pounds
 curl http://localhost:8080/convert?lbs=25
@@ -134,4 +137,4 @@ curl http://localhost:8080/convert?lbs=-5
 - **Validation**: Input validation and error handling
 - **Response Format**: JSON with conversion results
 
-For detailed architecture information, see [DESIGN.md](DESIGN.md).
+For detailed architecture information, see [DESIGN.md](DESIGN.md)

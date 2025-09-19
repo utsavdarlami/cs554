@@ -17,6 +17,7 @@ Internet Request (HTTPS)
 ### 1. Frontend Layer - nginx Reverse Proxy
 
 **Purpose**: Web server and SSL termination
+
 **Configuration**: `/etc/nginx/conf.d/default.conf`
 
 **Key Features**:
@@ -32,8 +33,8 @@ Internet Request (HTTPS)
 
 ### 2. Application Layer - Express.js API
 
-**Purpose**: Business logic and API endpoint handling
 **Runtime**: Node.js with Express.js framework
+
 **Port**: 8080 (internal)
 
 **API Specification**:
@@ -60,6 +61,7 @@ GET /convert?lbs={number}
 ### 3. Process Management - PM2
 
 **Purpose**: Application lifecycle management and monitoring
+
 **Command**: `npx pm2 start server.js`
 
 **Benefits**:
