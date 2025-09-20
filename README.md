@@ -139,3 +139,78 @@ curl http://localhost:8080/convert?lbs=-5
 - **Response Format**: JSON with conversion results
 
 For detailed architecture information, see [DESIGN.md](DESIGN.md)
+
+## Cleanup Guide
+
+### 1. Stop or Terminate the EC2 Instance
+
+**Option A: Stop Instance (Keeps data, stops compute charges)**
+
+```bash
+# Via AWS CLI
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+
+# Or via AWS Console:
+# EC2 → Instances → Select instance → Instance State → Stop
+```
+
+**Option B: Terminate Instance (Permanent deletion)**
+
+- Terminating permanently deletes the instance and all data.
+
+```bash
+# Via AWS CLI  
+aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+
+# Or via AWS Console:
+# EC2 → Instances → Select instance → Instance State → Terminate
+```
+
+### 2. Delete Orphaned EBS Volumes
+
+After terminating an instance, EBS volumes may remain and continue charging:
+
+```bash
+# List available (unattached) volumes
+aws ec2 describe-volumes --filters Name=state,Values=available
+
+# Delete orphaned volume
+aws ec2 delete-volume --volume-id vol-<vol-id>
+
+# Or via AWS Console:
+# EC2 → Volumes → Select unattached volumes → Actions → Delete volume
+```
+
+### 3. Delete Key Pairs
+
+Remove SSH key pairs if no longer needed:
+
+```bash
+# List key pairs
+aws ec2 describe-key-pairs
+
+# Delete key pair
+aws ec2 delete-key-pair --key-name <key-name>
+
+# Or via AWS Console:
+# EC2 → Key Pairs → Select → Actions → Delete
+```
+
+**Also delete the local .pem file:**
+
+```bash
+rm ~/Downloads/<key-name>.pem
+```
+
+### Clean-up Verification
+
+Check that resources are cleaned up:
+
+```bash
+# Verify no running instances
+aws ec2 describe-instances --query 'Reservations[*].Instances[?State.Name!=`terminated`]'
+
+# Check for orphaned volumes
+aws ec2 describe-volumes --filters Name=state,Values=available
+```
+
