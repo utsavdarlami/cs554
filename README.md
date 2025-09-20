@@ -148,7 +148,7 @@ For detailed architecture information, see [DESIGN.md](DESIGN.md)
 
 ```bash
 # Via AWS CLI
-aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+aws ec2 stop-instances --instance-ids i-<instance-id>
 
 # Or via AWS Console:
 # EC2 → Instances → Select instance → Instance State → Stop
@@ -160,7 +160,7 @@ aws ec2 stop-instances --instance-ids i-1234567890abcdef0
 
 ```bash
 # Via AWS CLI  
-aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+aws ec2 terminate-instances --instance-ids i-<instance-id>
 
 # Or via AWS Console:
 # EC2 → Instances → Select instance → Instance State → Terminate
