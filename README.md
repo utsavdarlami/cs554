@@ -8,6 +8,7 @@ A simple RESTful API that converts pounds to kilograms with HTTPS encryption
 
 ### Prerequisites
 - Node.js and npm installed
+- pm2 (`npm install pm2`)
 - Git
 
 ### Installation
@@ -15,7 +16,7 @@ A simple RESTful API that converts pounds to kilograms with HTTPS encryption
 ```bash
 # Clone the repository
 git clone https://github.com/utsavdarlami/cs554
-cd weight-converter-api
+cd cs554 
 
 # Install dependencies
 npm install
